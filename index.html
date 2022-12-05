@@ -1,0 +1,107 @@
+<!--demo1601.html-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width,initial-scale=1">
+    <title>响应式布局示例</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .heading,.container,.footing{
+            margin: 10px auto;
+        }
+        .heading{
+            height: 100px;
+            background-color: chocolate;
+        }
+        .container:after{
+            content: '';
+            display: table;
+            clear: both;
+        }
+        .left,.right,.main{
+            background-color: cornflowerblue;
+        }
+        .footing{
+            height: 100px;
+            background-color: aquamarine;
+        }
+
+        /*窗口宽度在960px以上*/
+        @media screen and (min-width: 960px){
+            .heading,
+            .container,
+            .footing{
+                width: 960px;
+            }
+            .left,.main,.right{
+                float: left;
+                height: 500px;
+            }
+            .left, .right {
+                width: 200px;
+            }
+            .main{
+                margin-left: 5px;
+                margin-right: 5px;
+                width: 550px;
+            } 
+        }
+
+        /*窗口宽度在600以上，959以下*/
+        @media screen and (min-width: 600px) and (max-width: 960px){
+            .heading,
+            .container,
+            .footing{
+                width: 600px;
+            }
+            .left, .main {
+                float: left;
+                height: 400px;
+            }
+            .right{
+                display: none;
+            }
+            .left{
+                width: 160px;
+            }
+            .main{
+                width: 435px;
+                margin-left: 5px;
+            } 
+        }
+        
+        /*窗口宽度在659px以下*/
+        @media screen and (max-width: 600px){
+            .heading,.container,.footing{
+                width: 400px;
+            }
+
+            .left,.right{
+                width: 400px;
+                height: 100px;
+            }
+            .main{
+                margin-top: 10px;
+                width: 400px;
+                height: 200px;
+            }
+            .right{
+                margin-top: 10px;
+            } 
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">Header</div>
+    <div class="container">
+        <div class="left">Left菜单</div>
+        <div class="main">Main</div>
+        <div class="right">right导航123</div>
+    </div>
+    <div class="footing">Foot</div>
+</body>
+</html>
